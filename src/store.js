@@ -1,31 +1,9 @@
 import { createStore } from "redux"
-let state = {
-    balls:15
-}
+import rootReducer from "./redux/rootReducer";
 
-function BallReducer(initialState = state, action) {
-    //update
-     //n types of changes
-    
-    //state change logic 
-    switch (action.type) {
-        //store update
-        case "buy_ball":
-            return {
-                balls: initialState.balls - 1
-            }
-        case "sell_ball":
-            return {
-                balls: initialState.balls +1
-            }
-        default: return state;
-    }
-    
-    
-    
-}
+console.log('HELLO');
 
-const store = createStore(BallReducer);
+const store = createStore(rootReducer);
 
 export default store
 

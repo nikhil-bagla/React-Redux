@@ -1,6 +1,6 @@
 import React from 'react';
 import Balls from "./Components/Balls"
-// import Bats from "./Components/Bats"
+import Bats from "./Components/Bats"
 import { Provider } from 'react-redux';
 import store from "./store"
 import './App.css';
@@ -11,12 +11,13 @@ function App() {
       <Provider store={store}>
         <div className="App">
           <Balls />
+          <Bats/>
        </div>
 
         
       </Provider>
      
-      {/* <Bats/> */}
+ 
     </div>
   );
 }

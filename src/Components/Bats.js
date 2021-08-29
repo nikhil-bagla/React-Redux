@@ -1,18 +1,43 @@
-import React,{useState} from 'react'
-
-function Bats() {
-    const [bats, setBats] = useState(5);
-    const [val, setVal] = useState("");
-    
+import React, { useState } from 'react'
+import { connect } from "react-redux"
+function Bats(props) {
+    // const [bat, setBat] = useState(5);
+    const [value, setValue] = useState("");
     return (
         <div>
-            <h1>Number of Bats - {bats}</h1>
-            <input type="text" value={val}
-                onChange={(e) => { setVal(e.target.value) }}/>
-            <button
-            onClick={()=>{setBats(bats-val)}}>Buy Now</button>
+            <h1>Number of Bats : {props.quantity}</h1>
+            <h2>It say's {props.dummyState}</h2>
+            <input value={value}
+                onChange={(e) => {
+                    // console.log(e.target.value)
+                    setValue(e.target.value)
+                }}
+            ></input>
+            <button onClick={() => {
+                props.setBat(value);
+                setValue("");
+            }}>Buy Bat</button>
         </div>
     )
 }
-
-export default Bats
+// 5 -> provide state variables from store
+const mapStateToProps = store => {
+    console.log("in map state to prop", store);
+    // state variables change  
+    return store.Bat;
+}
+// dispatch action provide to reducer
+const mapDispatchtoProps = dispatch => {
+    //    action
+    // handler function 
+    return {
+        setBat: (val) => {
+            dispatch({
+                type: "buy_bat",
+                // data send to reducer function 
+                payload: val
+            })
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchtoProps)(Bats)

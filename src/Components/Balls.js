@@ -21,9 +21,9 @@ function Balls(props) {
 //provides state variables from store
 const mapStateToProps = (store) => {
     
-    //state variables change
+    //state variables and changes in them
     console.log("in map state to props",store);
-    return store;
+    return store.Ball;
 }
 //dispatch action
 
