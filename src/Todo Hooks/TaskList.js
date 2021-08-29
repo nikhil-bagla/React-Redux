@@ -1,7 +1,13 @@
 import React from 'react'
 
 function TaskList(props) {
-    let { tasks, onDelete}=props
+    let { tasks,setTasks} = props
+    const onDelete = (id) => {
+        let nta = tasks.filter(obj => {
+            return obj.id != id    //returns all other objects then the object whose id is passed to this function
+        })
+        setTasks(nta)
+    }
     return (
         <div>
             <div className='class-list'>

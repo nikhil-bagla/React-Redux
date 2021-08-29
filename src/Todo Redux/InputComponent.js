@@ -1,12 +1,12 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 
 function InputComponent(props) {
     let { tasks, setTasks } = props
-const [currTask, setCurrTask] = useState('')
-   
+    const [currTask, setCurrTask] = useState('')
+
     let handleClick = (task) => {
         console.log(currTask);
-        tasks.push({ id:tasks.length + 1, txt:currTask })
+        tasks.push({ id: tasks.length + 1, txt: currTask })
         // setTasks({ ...task,id: tasks.length + 1, txt: task })
         console.log(tasks);
         setCurrTask('');
@@ -18,11 +18,11 @@ const [currTask, setCurrTask] = useState('')
         <div>
             <div className='input-container'>
                 <input type='text' value={currTask} onChange={(e) => { setCurrTask(e.target.value) }}></input>
-                     <button onClick={() => {
-                        handleClick(currTask);
-                        // setCurrTask('')
-                    }}>Add</button>
-                </div>
+                <button onClick={() => {
+                    handleClick(currTask);
+                    // setCurrTask('')
+                }}>Add</button>
+            </div>
         </div>
     )
 }
